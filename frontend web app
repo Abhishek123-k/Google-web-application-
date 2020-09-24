@@ -1,0 +1,182 @@
+<html>
+    <head>
+    <meta name="google-signin-client_id" content="583476728993-957aedtnjqkrge1ka7hmmr069dvni6ge.apps.googleusercontent.com" localhost:8000>
+    
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 50%;
+  padding: 10px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  margin: 6px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 10px 15px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: center;
+  width: 20%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 20px;
+
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 20% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 2px solid #f1f1f1;
+  margin-bottom: 50px;
+}
+ 
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+     
+  }
+}
+</style>
+<script>function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
+
+<body>
+    
+   <div align= "center"> <img src="download.png" alt= "img" width = "200"  height = "100"/><br>
+    <a href="#" onclick="signOut();">Sign out</a></div>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    
+
+    
+  
+  <form class="modal-content" action="/action_page.php">
+    <div align= "center" class="container">
+      <h1>Sign Up</h1><br>
+      <p>Create your Account.</p>
+      <p> Lorem Ipsum dolor sit amet,consectetur adipiscing elit</p><br><br><br><br><br><br>
+
+     
+      <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
+
+      <button type="signin with google" class="signinbtn">signin with google </button>
+      <button type="submit" class="signinbtn">Signin with facebook </button>
+      
+      <p>or</p>
+
+      <hr>
+
+    
+      <label for="First name"><b>First name</b></label>
+      <input type="text" placeholder="Enter name" name="First name" required><br><br>
+
+      <label for="Last name"><b>Last name</b></label>
+      <input type="text" placeholder="Enter name" name="Last name" required><br><br>
+
+
+      <label for="Email Adrr"><b>Email Adrr</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required><br><br>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required><br><br>
+      
+      <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      </label>
+
+      <p>By clicking signup, you agree to our <a href="#" style="color:dodgerblue">Terms of use and our Privacy Policy</a>.</p>
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </div>
+    </form>
+  </form>
+</div>
+
+</body>
+</html>
